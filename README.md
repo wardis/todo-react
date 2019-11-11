@@ -1,6 +1,7 @@
 # Todo list in React
 
-Find here a simple todo list application developed in [React](https://reactjs.org/).
+Find here a simple todo list application developed with [React](https://reactjs.org/). To view the project in action follow this link [https://wardis.github.io/todo-react/](https://wardis.github.io/todo-react/).
+
 I styled the user interface using the utility first CSS framework [Tailwind CSS](https://tailwindcss.com/)
 
 ![Todo List App Preview](public/todo-react-preview.gif)
