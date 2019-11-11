@@ -35,7 +35,19 @@ class App extends Component {
       newTask: "",
       list
     })
+  }
 
+  deleteTask(id) {
+    // copy current list of tasks
+    const list = [...this.state.list];
+    
+    // filter out task being deleted
+    const updatedList = list.filter(task => id !== task.id);
+
+    // update the state
+    this.setState({
+      list: updatedList
+    });
   }
 
   render() {
@@ -60,7 +72,14 @@ class App extends Component {
             {
               this.state.list.map(task => {
                 return (
-                  <li key={task.id}>{task.value}</li>
+                  <li key={task.id}>
+                    {task.value}
+                    <button
+                      onClick={() => this.deleteTask(task.id)}
+                    >
+                      X
+                    </button>
+                  </li>
                 );
               })
             }
