@@ -3,6 +3,8 @@
 Find here a simple todo list application developed in [React](https://reactjs.org/).
 I styled the user interface using the utility first CSS framework [Tailwind CSS](https://tailwindcss.com/)
 
+![Todo List App Preview](public/todo-react-preview.gif)
+
 ## Available Script
 
 In the project directory, you can run:
