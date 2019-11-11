@@ -29,7 +29,7 @@ class App extends Component {
     const list = [...this.state.list];
 
     // add the new task to the list
-    list.push(newTask);
+    list.unshift(newTask);
 
     // update state with new list and reset the input
     this.setState({
@@ -53,38 +53,34 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div>
-          Add a new task...
-          <br/>
-          <input 
-            type="text"
-            placeholder="Write task here..."
-            value={this.state.newTask}
-            onChange={e => this.updateInput("newTask", e.target.value)}
-          />
-          <button
-            onClick={() => this.addTask()}
-          >
-            Add
-          </button>
-          <br/>
-          <ul>
-            {
-              this.state.list.map(task => {
-                return (
-                  <li key={task.id}>
-                    {task.value}
-                    <button
-                      onClick={() => this.deleteTask(task.id)}
-                    >
-                      X
-                    </button>
-                  </li>
-                );
-              })
-            }
-          </ul>
+      <div className="App font-sans bg-gray-300 h-screen">
+        <div className="container max-w-sm mx-auto">
+          <h1 className="text-3xl py-5 font-bold">What are you going to do?</h1>
+
+          <div className="max-w-sm overflow-hidden  mb-0">
+
+            <div className="new-task flex items-center shadow-md rounded mb-3">
+              <input type="text" className="flex-1 appearance-none border border-r-0 rounded-l px-4 py-3 zm-2 mr-0 font-semibold" placeholder="Write task here..." value={this.state.newTask} onChange={e => this.updateInput("newTask", e.target.value)} />
+              <button className="bg-teal-500 hover:bg-teal-700 text-white py-3 px-4 rounded rounded-l-none border border-teal-500 m-z2 ml-0" onClick={() => this.addTask()}>Add</button>
+            </div>
+
+            <div className="bg-white  rounded shadow-lg">
+
+              <div>
+                {
+                  this.state.list.map(task => {
+                    return (
+                      <p key={task.id} className="flex text-gray-800 even:bg-gray-200 task font-semibold p-3">
+                        <span className="flex-1">{task.value}</span>
+                        <button onClick={() => this.deleteTask(task.id)} className="px-3 flex-none">X</button>
+                      </p>
+                    );
+                  })
+                }
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     );
