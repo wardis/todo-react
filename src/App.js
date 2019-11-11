@@ -19,6 +19,8 @@ class App extends Component {
   }
 
   addTask() {
+    if(!this.state.newTask.length) return;
+
     // create task with unique id
     const newTask = {
       id: 1 + Math.random(),
